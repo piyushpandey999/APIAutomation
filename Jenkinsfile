@@ -4,7 +4,7 @@ pipeline {
     parameters {
         choice(
             name: 'API_GROUP',
-            choices: ['all', 'user', 'product', 'order'],
+            choices: ['all', 'GetUsers', 'GetBookingIds'],
             description: 'Select API group to test'
         )
     }
@@ -32,8 +32,8 @@ pipeline {
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: 'test-output',
-                    reportFiles: 'ExtentReport*.html',
+                    reportDir: 'Reports',
+                    reportFiles: 'AutomationTestReport*.html',
                     reportName: 'API Test Report',
                     reportTitles: ''
                 ])
@@ -48,9 +48,9 @@ pipeline {
                 body: """<p>Build Result: ${currentBuild.result ?: 'SUCCESS'}</p>
                          <p>API Group Tested: ${params.API_GROUP}</p>
                          <p>Report: <a href="${env.BUILD_URL}HTML_Report/">HTML Report</a></p>""",
-                to: 'team@example.com',
+                to: 'piyushpandey3399@gmail.com',
                 attachLog: true,
-                attachmentsPattern: 'test-output/ExtentReport*.html'
+                attachmentsPattern: 'Reports/AutomationTestReport*.html'
             )
         }
     }
