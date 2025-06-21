@@ -6,6 +6,8 @@ import org.BaseSetup.BaseClass;
 import org.Utils.ConfigReader;
 import org.testng.annotations.Test;
 
+
+@Test(groups = "GetUsers")
 public class GetUsers extends BaseClass {
 
 

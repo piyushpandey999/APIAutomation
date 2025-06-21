@@ -5,6 +5,8 @@ import io.restassured.response.Response;
 import org.BaseSetup.BaseClass;
 import org.testng.annotations.Test;
 
+
+@Test(groups = "GetBookingIds")
 public class GetBookingIds extends BaseClass {
 
 

@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-<listeners>
-    <listener class-name="org.Utils.ExtentReportListener"/>
-    <listener class-name="org.Utils.EmailListener"/>
-</listeners>
+    <listeners>
+        <listener class-name="org.Utils.ExtentReportListener"/>
+        <listener class-name="org.Utils.EmailListener"/>
+    </listeners>
     <test verbose="2" preserve-order="true" name="E:/Practice/API-Automation/API-Automation-Framework">
-        <classes>
-            <class name="org.Tests.GetUsers">
-                <methods>
-                    <include name="getUsers"/>
-                </methods>
-            </class>
-            <class name="org.Tests.GetBookingIds">
-                <methods>
-                    <include name="getBookingIds"/>
-                </methods>
-            </class>
-        </classes>
+        <groups>
+            <run>
+                <include name="${test.group}"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="api.*"/>
+        </packages>
     </test>
 </suite>
