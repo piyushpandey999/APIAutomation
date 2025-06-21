@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo/rest-assured-framework.git'
+                git 'https://github.com/piyushpandey999/APIAutomation.git'
             }
         }
 
