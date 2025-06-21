@@ -21,7 +21,13 @@ pipeline {
                 script {
                     // Map Jenkins parameter to TestNG group
                     def testGroup = params.API_GROUP == 'all' ? '.*' : params.API_GROUP
-                    sh "mvn clean test -Dtest.group=$testGroup"
+
+                    // Use bat for Windows or sh for Unix/Linux
+                    if (isUnix()) {
+                        sh "mvn clean test -Dtest.group=${testGroup}"
+                    } else {
+                        bat "mvn clean test -Dtest.group=${testGroup}"
+                    }
                 }
             }
         }
